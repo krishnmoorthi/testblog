@@ -1,0 +1,38 @@
+buildscript {
+   repositories {
+      mavenLocal()
+      mavenCentral()
+      }
+      
+      dependencies {
+      classpath 'org.webjars:jquery:1.9.1'
+      classpath 'tomcat:bootstrap:1.9.0'
+   }
+   }
+
+plugins {
+	id 'org.springframework.boot' version '2.1.2.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'eclipse'
+
+group = 'com.testblog'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile group: 'tomcat', name: 'bootstrap', version: '5.0.18'
+	compile group: 'org.webjars', name: 'jquery', version: '1.9.1'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
